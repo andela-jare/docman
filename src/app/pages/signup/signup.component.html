@@ -1,0 +1,51 @@
+<div class="container">
+  <form [formGroup]="form" class="form-signin" (ngSubmit)="signUp(form.value)">
+    <h2 class="form-signin-heading text-center">Sign Up</h2>
+    <div class="alert alert-danger" *ngIf="error">
+      {{ error.message }}
+    </div>
+    <div class="form-group">
+      <label for="firstName" class="sr-only">First Name</label>
+      <input formControlName="firstName" type="text" id="firstName" name="firstName" class="form-control" placeholder="First name" required autofocus>
+      <div class="alert alert-danger" [hidden]="form.get('firstName').valid || form.get('firstName').untouched">
+        First name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName" class="sr-only">Last Name</label>
+      <input formControlName="lastName" type="text" id="lastName" name="lastName" class="form-control" placeholder="Last name" required autofocus>
+      <div class="alert alert-danger" [hidden]="form.get('lastName').valid || form.get('lastName').untouched">
+        Last name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="username" class="sr-only">Username</label>
+      <input formControlName="username" type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+      <div class="alert alert-danger" [hidden]="form.get('username').valid || form.get('username').untouched">
+        Username must be a minimum of three characters
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="sr-only">Email address</label>
+      <input formControlName="email" type="email" id="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+      <div class="alert alert-danger" [hidden]="form.get('email').valid || form.get('email').untouched">
+        Enter a valid email
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="sr-only">Password</label>
+      <input formControlName="password" type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+      <div class="alert alert-danger" [hidden]="form.get('password').valid || form.get('password').untouched">
+        A minimum of 6 characters for password
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-md btn-primary btn-block" type="submit" [disabled]="!form.valid">Register</button>
+    </div>
+  </form>
+</div> <!-- /container -->

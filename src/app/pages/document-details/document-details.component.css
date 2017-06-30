@@ -1,0 +1,25 @@
+.post {
+  width: 50%;
+  margin: 0 auto;
+}
+.post h2 {
+  display: inline-block;
+}
+.post .action {
+  font-size: 20px;
+  margin-top: 28px;
+  float: right;
+  cursor: pointer;
+}
+.post .content {
+  text-align: justify;
+  margin-top: 2rem;
+}
+
+.post .footer {
+  float: right;
+}
+
+.delete {
+  color: red;
+}

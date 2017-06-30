@@ -1,0 +1,23 @@
+<div *ngIf="document" class="container">
+  <div class="post">
+    <br>
+    <span>{{ document.createdAt | date }}</span>
+    <br>
+    <h2>{{ document.title }}</h2>
+    <div class="action" *ngIf="document.ownerId === userId">
+      <app-edit-document (editedDocument)="onEditedDocument($event)" [document]="document"></app-edit-document>
+      <app-popup
+        [icon]="'glyphicon glyphicon-remove danger'"
+        [message]="'Are you sure you want to perform this action?'"
+        [title]="'Delete Document ' + document.title + '?'"
+        [action]="deleteMethod"
+        [iconTitle]="'Delete'"
+      >
+      </app-popup>
+    </div>
+    <div class="content">
+      <p>{{ document.content }}</p>
+    </div>
+    <div *ngIf="userDetails" class="footer">By {{ userDetails.username }}</div>
+  </div>
+</div>

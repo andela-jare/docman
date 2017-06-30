@@ -1,0 +1,22 @@
+<div class="container">
+  <div style="margin-top: 30px; display: flex; flex-flow: row wrap;">
+    <div *ngIf="!documents || !documents.length">
+      <h4 class="text-center">Sorry, no documents are available!</h4>
+    </div>
+    <div *ngFor="let document of documents" style="width: 30%; margin-right: 35px;">
+      <div>
+        <div class="panel panel-default" style="min-height: 200px">
+          <div class="panel-heading">
+            <h3 class="panel-title"><a routerLink="/documents/{{ document.id }}">{{ document.title }}</a></h3>
+            <span>{{ document.access }}</span><span style="float: right">Created {{ formatTime(document.createdAt) }}</span>
+          </div>
+          <div class="panel-body">
+            {{ truncateContent(document.content) }}
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-create-document (onDocument)="newDocument($event)"></app-create-document>
+</div>
